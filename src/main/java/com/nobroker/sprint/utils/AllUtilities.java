@@ -1,9 +1,12 @@
+
 package com.nobroker.sprint.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
@@ -222,4 +225,21 @@ public class AllUtilities {
 		}
 		a.perform();
 	}
+	
+	public String getDay(String Date) {
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	    LocalDate date = LocalDate.parse(Date, formatter);
+	    return String.valueOf(date.getDayOfMonth());
+	    
+	}
+	
+	public String getMonthYear(String Date) {
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		    LocalDate date = LocalDate.parse(Date, formatter);
+		return date.getMonth().name().substring(0,1) + 
+                date.getMonth().name().substring(1).toLowerCase() 
+                + " " + date.getYear();
+	}
+	
+	
 }

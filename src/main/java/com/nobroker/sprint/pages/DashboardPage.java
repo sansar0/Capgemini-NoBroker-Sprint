@@ -43,6 +43,18 @@ public class DashboardPage {
 	@FindBy(xpath = "//div[@id='profile-menu-dropdown']//a[contains(.,'Profile')]")
 	private WebElement ProfileFeature;
 
+	
+	
+	// Locating Packers And Movers Banner
+	@FindBy (xpath="//span[text()='Packers And Movers']")
+	private WebElement PackersAndMovers;
+	
+	
+	
+	public WebElement getPackersAndMovers() {
+		return PackersAndMovers;
+	}
+	
 	// getters For WebElements
 	public WebElement getCityDropdown() {
 		return cityDropdown;
@@ -75,6 +87,8 @@ public class DashboardPage {
 	public WebElement getProfileFeature() {
 		return ProfileFeature;
 	}
+	
+	
 
 	// after OTP, click continue
 	public void clickContinueAfterOTP(WebDriver driver) {
@@ -111,4 +125,13 @@ public class DashboardPage {
 		wait.until(ExpectedConditions.elementToBeClickable(getProfileImg())).click();
 		wait.until(ExpectedConditions.elementToBeClickable(getProfileFeature())).click();
 	}
+	
+	
+	// Click The PackersAndMovers to Navigate to the Section
+	
+	public void clickPackersAndMovers() {
+		getPackersAndMovers().click();
+	}
+	
+	
 }
